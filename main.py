@@ -354,7 +354,7 @@ PAYMENT_CHECK_INTERVAL = 3
 
 # Support / shop
 SUPPORT_CONTACT = (os.environ.get("SUPPORT_CONTACT") or "").strip() \
-    or "@cheapest_tgbot"
+    or "@TG_SUPPORT_001"
 SUPPORT_URL = "https://t.me/" + SUPPORT_CONTACT.lstrip("@")
 SHOP_NAME = (os.environ.get("SHOP_NAME") or "").strip() or "TG ID STORE"
 GUARANTEE_HOURS = 0
@@ -11091,7 +11091,7 @@ def s_terms() -> str:
               "account lifespan, 2FA status or spam block status.\n\n"
             + "<b>𝗟𝗜𝗔𝗕𝗜𝗟𝗜𝗧𝗬</b>\nUse at your own risk. We are not "
               "responsible for loss of funds or accounts.\n\n"
-            + "━━━━━━━━━━━━━━━━━━━━\n<i>Developed by @ItzAnjasha</i>")
+            + "━━━━━━━━━━━━━━━━━━━━\n<i>Developed by Anjasha</i>")
 
 
 def kb_maintenance():
