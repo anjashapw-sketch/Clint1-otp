@@ -371,7 +371,7 @@ TGM_API_KEY = (os.environ.get("SUPPLIER_API_KEY")
                or os.environ.get("SUPPLIER_API_TOKEN")
                or "tgm_bb607c35c70309f443cf9cfa8cad14c27de2481f")
 TGM_BASE_URL = os.environ.get("SUPPLIER_BASE_URL",
-                              "https://tgmandi.myvipsite.fun/api/v1").rstrip("/")
+                              "https://tgmandi.shop/api/v1").rstrip("/")
 TGM_CURRENCY = "inr"
 SUP_CURRENCY = TGM_CURRENCY          # supplier wallet / price currency
 
@@ -4965,32 +4965,6 @@ def _age_secs(sec) -> str:
     if s < 3600:
         return f"{int(s // 60)}m ago"
     return f"{int(s // 3600)}h ago"
-
-
-# ══════════════════════════════════════════════════════════════════════
-#  v38 — SUPPLIER: TG MANDI RESELLER API  (old market removed)
-# ══════════════════════════════════════════════════════════════════════
-#  Base : https://tgmandi.myvipsite.fun/api/v1   (docs: /docs.php)
-#  Auth : X-Api-Key header
-#  Money: the reseller wallet is in INR, prices already include the
-#         reseller margin, so nothing is converted any more.
-#
-#  Endpoints used (all verified live on 4 Nov 2026):
-#    GET  /ping                            public health
-#    GET  /me | /balance                   wallet + reseller profile
-#    GET  /countries                       250 countries, price + stock
-#    GET  /accounts?country[]=BD&page=1     catalogue (40 per page, INR)
-#         &order_by=price_to_up|price_to_down &pmin &pmax
-#         &origin[]=phishing|stealer|resale|autoreg
-#         &spam=yes|no &premium=yes|no &email=yes|no &password=yes|no
-#    GET  /accounts/{id}                   one account (+ available flag)
-#    POST /buy  {"id": "<account id>"}     buy one account
-#    GET  /orders | /orders/{order_no}     order history / detail
-#    GET  /orders/{order_no}/code          live login OTP (or POST)
-#    GET  /sessions | /sessions/{id}       bought sessions (telethon string)
-#    POST /sessions/{id}/reset|terminate   kill Telegram authorizations
-#    GET  /transactions                    wallet ledger
-# ══════════════════════════════════════════════════════════════════════
 
 TGM_PAGE_SIZE = 40                      # supplier caps a page at 40
 TGM_SESSION_TTL = 25                    # /sessions cache (sec)
